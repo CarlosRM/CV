@@ -1,0 +1,54 @@
+.header {
+  position: fixed;
+  height: 100vh;
+
+  &__list {
+    list-style-type: none;
+    border-left: 1px solid $beige;
+    height: 100%;
+    margin-left: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  &__item {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__item a {
+    text-decoration: none;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    font-size: 1.5rem;
+    color: $beige;
+  }
+
+  &__item a:hover {
+    color: $pink;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+
+  .header {
+    flex-direction: row;
+    height: unset;
+    width: 100%;
+    justify-content: space-evenly;
+
+    &__list {
+      border-left: none;
+      margin-left: 0;
+      padding-left: 0;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+  }
+}

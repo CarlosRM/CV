@@ -3,13 +3,15 @@
  */
 
 @import "variables";
+@import "utils";
 
 /**
  * Import npm dependencies
  * see: https://en.parceljs.org/module_resolution.html
  * see commented examples below
  */
- @import "@fortawesome/fontawesome-free/css/all.css";
+@import "@fortawesome/fontawesome-free/css/all.css";
+@import "devicon/devicon.min.css";
 // @import "some-node-module";
 // @import "@some-company/some-node-module";
 
@@ -19,6 +21,7 @@
  */
 
 @import "layouts/home";
+@import "layouts/header";
 
 /**
  * Do NOT include anything else in this file!

@@ -1,21 +1,300 @@
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  padding: 0;
   margin: 0;
-  padding: 30px;
-  font-family: $font-family-sans-serif;
-  background-color: $uoc-bg;
-  color: $uoc-corporate;
+  background: linear-gradient(to bottom, $darkBlue, $blue, $lightBlue);
+  background-attachment: fixed;
+  height: 100vh;
 }
 
-.uoc-logo {
-  display: block;
-  margin-bottom: 20px;
-  max-width: 300px;
-  height: auto;
+.hero {
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
-.uoc-title {
-  font-family: $font-family-serif;
-  font-size: 36px;
-  font-weight: 700;
-  color: $uoc-corporate;
+.hero__image {
+  width: 15vw;
+  border-radius: 50%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+.hero__title {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  color: $beige;
+  font-weight: 300;
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.hero__subtitle {
+  font-family: 'Rubik', sans-serif;
+  color: $pink;
+  font-weight: 300;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.hero__description {
+  font-family: 'Rubik', sans-serif;
+  color: $beige;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 1rem;
+  max-width: 40%;
+}
+
+.contact-section {
+  margin-top: 20px;
+}
+
+.contact-link:hover {
+  color: $pink;
+}
+
+.contact-link {
+  font-size: 3rem;
+  color: $beige;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.section {
+  min-height: 100vh;
+  padding: 50px;
+
+  &__title {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: $beige;
+    font-size: 2rem;
+  }
+
+  & span {
+    display: block;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 20%;
+  padding-right: 20%;
+
+  &__column--title {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: $beige;
+    font-size: 2rem;
+    font-weight: 100;
+  }
+
+  & .stack-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style-type: none;
+
+    &__element {
+      font-size: 4rem;
+      color: $beige;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__language-list {
+    display: flex;
+    flex-direction: column;
+    
+    @include reset-list;
+
+    &--element {
+      font-family: 'Rubik', sans-serif;
+      font-size: 1rem;
+      color: $beige;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 100;
+      border: 1px solid $beige;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      position: relative;
+    }
+
+    &--element:hover {
+      cursor: pointer;
+    }
+
+    &--element::before {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 100%;
+      background-color: $pink;
+      left: 0;
+      top: 0;
+      transition: ease-in-out 1s;
+      z-index: -1;
+    }
+
+    &--element:nth-child(1n).fill::before {
+      width: 100%;
+    }
+
+    &--element:nth-child(2n).fill::before {
+      width: 100%;
+    }
+
+    &--element:nth-child(3n).fill::before {
+      width: 95%;
+    }
+
+    &--element:nth-child(4n).fill::before {
+      width: 20%;
+    }
+  }
+
+  & .grid__experience-list {
+    @include reset-list;
+  }
+
+  & .experience-card {
+    position: relative;
+    transition: ease-in-out 0.7s;
+  }
+
+  & .experience-card:hover {
+    cursor: pointer;
+    transform: rotateY(180deg);
+  }
+
+  & .experience-card:hover .experience-front {
+    opacity: 0;
+  }
+
+  & .experience-back {
+    background: $beige;
+    padding: 20px;
+    border-radius: 4px;
+    font-family: 'Rubik', sans-serif;
+    margin-bottom: 20px;
+    color: $darkBlue;
+    transform: rotateY(180deg);
+    transition: ease-in-out 0.7;
+    
+
+    &__title {
+      color: $pink;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 0;
+
+      & span {
+        color: $darkBlue;
+        display: inline;
+        margin-left: 10px;
+        font-weight: 700;
+      }
+    }
+
+    &__date {
+      margin-top: 0;
+      font-size: 0.8rem;
+    }
+  }
+
+  & .experience-front {
+    position: absolute;
+    background-color: $beige;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition-delay: 0.35s;
+
+    &__title {
+      color: $pink;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 0;
+      margin-top: 0;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    &__position {
+      color: $darkBlue;
+      font-weight: 700;
+      font-family: 'Rubik', sans-serif;
+      margin-bottom: 0;
+      text-align: center;
+    }
+  }
+
+  & .certificate-list {
+    @include reset-list;
+  }
+
+  & .certificate {
+    color: $beige;
+    font-family: 'Rubik', sans-serif;
+
+    &__title {
+      margin-bottom: 0;
+    }
+    
+    &__provider {
+      color: $pink;
+    }
+
+    &__date {
+      margin-top: 0;
+      font-weight: 100;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+
+  .hero__image {
+    width: 30vw;
+    height: 30vw;
+  }
+
+  .hero__title {
+    font-size: 2rem;
+  }
+
+  .hero__description {
+    max-width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .grid ul {
+    padding-left: 0;
+  }
 }
